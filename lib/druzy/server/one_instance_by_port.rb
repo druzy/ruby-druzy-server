@@ -6,7 +6,7 @@ module Druzy
       @@instances={}
       
       def initialize(port)
-        @server=WEBrick::HTTPServer.new(:Port => port)
+        @server=WEBrick::HTTPServer.new(:Port => port, :AccessLog => [], :Logger => WEBrick::Log.new(File::NULL))
       end
       
       def self.instance(port)
